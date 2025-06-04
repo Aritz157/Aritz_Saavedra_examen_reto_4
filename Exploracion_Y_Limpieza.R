@@ -23,3 +23,19 @@ unique(df$country)
 unique(df$director)
 
 x<-df %>% group_by(df$director) %>% summarise(n())
+
+
+#Limpieza
+
+miss_var_summary(df)
+
+vis_miss(df, cluster = T)
+
+df$Seasons<-ifelse(df$type == "Movie", 0, df$Seasons)
+df$Minutes<-ifelse(df$type == "TV Show", 0,df$Minutes)
+
+summary(df)
+
+df<-kNN(df,variable = c("listed_in","country"))
+
+vis_miss(df, cluster = T) #Damos por finalizada la limpieza de datos
