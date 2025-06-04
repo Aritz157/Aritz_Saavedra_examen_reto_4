@@ -38,4 +38,6 @@ summary(df)
 
 df<-kNN(df,variable = c("listed_in","country"))
 
-vis_miss(df, cluster = T) #Damos por finalizada la limpieza de datos
+write.csv(df,"netflix_limpio.csv")
+vis_miss(df, cluster = T) #Damos por finalizada la limpieza de datos 
+
